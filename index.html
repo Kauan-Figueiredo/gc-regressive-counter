@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GC:RP está chegando!!</title>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;1,700&display=swap" rel="stylesheet">
+        
+        <script src="https://kit.fontawesome.com/a89d1ee0f6.js"></script>
+</head>
+<body>
+    
+    <style>
+         * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Roboto', sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                background-image: url(assets/bcg.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+
+                color: white;
+                height: 100vh;
+
+
+            }
+
+            main {
+                text-align: center;
+                text-shadow: 2px 2px 10px black;
+            }
+
+            main img {
+                max-width: 100vw;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+                font-weight: 100;
+                opacity: .75;
+            }
+
+            #time {
+                font-size: 2em;
+                font-weight: 300;
+                text-align: left;
+                width: max-content;
+                margin: auto;
+                margin-top: 30px;
+            }
+
+            #time .number {
+                font-weight: 500;
+                color: #ecbf32;
+            }
+
+            a {
+                color: inherit;
+                text-decoration: inherit;
+            }
+
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                background: linear-gradient(to top, black, transparent);
+                white-space: nowrap;
+                flex-wrap: wrap;
+            }
+
+            .social {
+                display: flex;
+                margin: 10px 20px 20px 20px;
+                font-weight: 400;
+            }
+
+            .social .icon {
+                margin-right: 5px;
+            }
+
+            .twitter .icon {
+                color: #1DA1F2;
+            }
+
+            .youtube .icon {
+                color: red;
+            }
+
+            .discord .icon {
+                color: #5865F2;
+            }
+
+            .community .icon img {
+                height: 16px;
+            }
+
+            .spook {
+                background-image: url(assets/6817e8d2b861af9bd480bac8b1e8dcca7e1d6e72.png);
+                width: 100px;
+                height: 100px;
+                background-size: contain;
+                position: fixed;
+                bottom: 10px;
+                left: 0;
+                opacity: .12;
+
+                transition: transform 200ms;
+            }
+
+            .spook.spooky {
+                transform: scale(8);
+            }
+
+        </style>
+    </head>
+    <body>
+        <main>
+            
+            <img src="">
+            <h2>comes out in</h2>
+
+            <div id="time">
+                <span class="number" id="days">80</span> days<br><span class="number" id="hours">13</span> hours<br><span class="number" id="minutes">20</span> minutes<br><span class="number" id="seconds">51</span> seconds
+            </div>
+            
+        </main>
+
+        <footer>    
+            <a href="https://www.youtube.com" target="_blank">
+                <div class="social youtube">
+                    <div class="icon">
+                        <i class="fab fa-fw fa-youtube"></i>
+                    </div>
+                    <span>
+                        Golden Coast Roleplay
+                    </span>
+                </div>
+            </a>
+            <a href="https://discord.gg" target="_blank">
+                <div class="social discord">
+                    <div class="icon">
+                        <i class="fab fa-fw fa-discord"></i>
+                    </div>
+                    <span>
+                        discord.gg/gc-rp
+                    </span>
+                </div>
+            </a>
+            <a href="" target="_blank">
+                <div class="social community">
+                    <div class="icon">
+                        <img src="https://community.ls-rp.com/uploads/monthly_2021_09/ryder.png">
+                    </div>
+                    <span>
+                        goldencoast.com.br  
+                    </span>
+                </div>
+            </a>
+        </footer>
+        <div class="spook" onclick="spookier()"></div>
+    </style>
+
+    <script>
+            const outIn = new Date(1647378000000);
+            const time = document.querySelector('#time');
+
+
+            function scroll() {
+                const difference = Math.floor((outIn - +new Date()) / 1000);
+                const days = Math.floor(difference / (24 * 60 * 60));
+                const hours = Math.floor((difference - (days * 24 * 60 * 60)) / (60 * 60));
+                const minutes = Math.floor((difference - (days * 24 * 60 * 60) - (hours * 60 * 60)) / (60));
+                const seconds = difference - (days * 24 * 60 * 60) - (hours * 60 * 60 ) - (minutes * 60);
+
+
+            
+                const daysE = document.querySelector('#days');
+                for (let i = 0; i <= days; i++) {
+                    setTimeout(() => {
+                        daysE.innerText = i;
+                    }, (1000 / days) * i)
+                }
+            
+                const hoursE = document.querySelector('#hours');
+                for (let i = 0; i <= hours; i++) {
+                    setTimeout(() => {
+                        hoursE.innerText = i;
+                    }, (1000 / hours) * i)
+                }
+                
+                const minutesE = document.querySelector('#minutes');
+                for (let i = 0; i <= minutes; i++) {
+                    setTimeout(() => {
+                        minutesE.innerText = i;
+                    }, (1000 / minutes) * i)
+                }
+
+                const secondsE = document.querySelector('#seconds');
+                for (let i = 0; i <= seconds; i++) {
+                    setTimeout(() => {
+                        secondsE.innerText = i;
+                    }, (1000 / seconds) * i)
+                }
+            }
+
+
+            function update() {
+
+                const difference = Math.floor((outIn - +new Date()) / 1000);
+
+                const days = Math.floor(difference / (24 * 60 * 60));
+                const hours = Math.floor((difference - (days * 24 * 60 * 60)) / (60 * 60));
+                const minutes = Math.floor((difference - (days * 24 * 60 * 60) - (hours * 60 * 60)) / (60));
+                const seconds = difference - (days * 24 * 60 * 60) - (hours * 60 * 60 ) - (minutes * 60);
+                
+                time.innerHTML = `<span class="number" id="days">${String(days).padStart(2, '0')}</span> days<br><span class="number">${String(hours).padStart(2, '0')}</span> hours<br><span class="number">${String(minutes).padStart(2, '0')}</span> minutes<br><span class="number">${String(seconds).padStart(2, '0')}</span> seconds`;
+            }
+
+
+            scroll();
+            setInterval(update, 1000);
+
+            const spook = document.querySelector('.spook');
+
+            let bottom = 0;
+            let left = 0;
+
+            setInterval(() => {
+                bottom += Math.random() > .4 ? 1 : -1;
+                left += Math.random() > .4 ? 1 : -1;
+
+                spook.style.bottom = `${bottom}px`;
+                spook.style.left = `${left}px`;
+                
+            }, 100);
+
+            function spookier() {
+                spook.classList.toggle('spooky');
+            }
+    </script>
+</body>
+</html>
